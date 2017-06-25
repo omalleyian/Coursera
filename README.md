@@ -1,11 +1,11 @@
 # Coursera
 A private repository for work on Coursera courses.
 
-These are solutions to the programming exercises for various Coursera.org courses. 
+These are solutions to programming exercises for various Coursera.org courses. 
 
-Currently includes courses on:
+Currently included courses:
 
-  - Machine Learning [[Link](https://www.coursera.org/learn/machine-learning)]
+  - Machine Learning by Andrew Ng [[Link](https://www.coursera.org/learn/machine-learning)]
   
 ### The use of these solutions on any Coursera excercise would violate Coursera's Honor Code
 If you are found repeatedly plagiarizing, you may be removed from the course or even the Coursera community.<sup>[1](#myfootnote1)</sup>
