@@ -62,7 +62,7 @@ EXT = 3.0;                    % extrapolate maximum 3 times the current bracket
 MAX = 20;                         % max 20 function evaluations per line search
 RATIO = 100;                                      % maximum allowed slope ratio
 
-argstr = ['feval(f, X'];                      % compose string used to call function
+argstr = ['feval(f, X'];                 % compose string used to call function
 for i = 1:(nargin - 3)
   argstr = [argstr, ',P', int2str(i)];
 end
@@ -122,7 +122,7 @@ while i < abs(length)                                      % while not finished
     A = 6*(f2-f3)/z3+3*(d2+d3);                      % make cubic extrapolation
     B = 3*(f3-f2)-z3*(d3+2*d2);
     z2 = -d2*z3*z3/(B+sqrt(B*B-A*d2*z3*z3));        % num. error possible - ok!
-    if ~isreal(z2) || isnan(z2) || isinf(z2) || z2 < 0 % num prob or wrong sign?
+    if ~isreal(z2) || isnan(z2) || isinf(z2) || z2<0  % num prob or wrong sign?
       if limit < -0.5                               % if we have no upper limit
         z2 = z1 * (EXT-1);                 % the extrapolate the maximum amount
       else
@@ -130,7 +130,7 @@ while i < abs(length)                                      % while not finished
       end
     elseif (limit > -0.5) && (z2+z1 > limit)         % extraplation beyond max?
       z2 = (limit-z1)/2;                                               % bisect
-    elseif (limit < -0.5) && (z2+z1 > z1*EXT)       % extrapolation beyond limit
+    elseif (limit < -0.5) && (z2+z1 > z1*EXT)      % extrapolation beyond limit
       z2 = z1*(EXT-1.0);                           % set to extrapolation limit
     elseif z2 < -z3*INT
       z2 = -z3*INT;
@@ -159,7 +159,7 @@ while i < abs(length)                                      % while not finished
     ls_failed = 0;                              % this line search did not fail
   else
     X = X0; f1 = f0; df1 = df0;  % restore point from before failed line search
-    if ls_failed || i > abs(length)          % line search failed twice in a row
+    if ls_failed || i > abs(length)         % line search failed twice in a row
       break;                             % or we ran out of time, so we give up
     end
     tmp = df1; df1 = df2; df2 = tmp;                         % swap derivatives
